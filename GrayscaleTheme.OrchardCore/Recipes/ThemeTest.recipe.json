@@ -1,0 +1,156 @@
+{
+  "name": "GraysacleTheme.OrchardCore",
+  "displayName": "GraysacleTheme.OrchardCore",
+  "description": "Provides a theme.",
+  "author": "The Orchard Team",
+  "website": "http://orchardproject.net",
+  "version": "2.0",
+  "issetuprecipe": true,
+  "categories": [ "default" ],
+  "tags": [ "blog" ],
+
+  // The variables are evaluated the first time they are accessed, and reused across steps
+  "variables": {
+    "blogContentItemId": "[js:uuid()]"
+  },
+
+  "steps": [
+    {
+      "name": "feature",
+      "enable": [
+        "Cms.Web",
+        "OrchardCore.Settings",
+        "OrchardCore.Admin",
+        "OrchardCore.Liquid",
+        "OrchardCore.Contents",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.Alias",
+        "OrchardCore.Autoroute",
+        "OrchardCore.ContentFields",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Deployment",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Resources",
+        "OrchardCore.Features",
+        "OrchardCore.Widgets",
+        "OrchardCore.Flows",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Html",
+        "OrchardCore.Scripting",
+        "OrchardCore.Layers",
+        "OrchardCore.Lists",
+        "OrchardCore.Localization",
+        "OrchardCore.Title",
+        "OrchardCore.Media",
+        "OrchardCore.Menu",
+        "OrchardCore.Navigation",
+        "OrchardCore.Roles",
+        "OrchardCore.Users",
+        "OrchardCore.Recipes",
+        "OrchardCore.Templates",
+        "OrchardCore.Tenants",
+        "OrchardCore.Themes",
+        "SafeMode",
+        "TheAdmin",
+        "GraysacleTheme.OrchardCore",
+        "TheTheme"
+      ],
+      "disable": []
+    },
+    {
+      "name": "themes",
+      "admin": "TheAdmin",
+      "site": "GraysacleTheme.OrchardCore"
+    },
+    {
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Display",
+        "Controller": "Item",
+        "Area": "OrchardCore.Contents",
+        "ContentItemId": "[js: variables('blogContentItemId')]"
+      },
+      "LayerSettings": {
+        "Zones": [ "Top", "BeforeContent", "Content", "Sidebar", "Footer" ]
+      }
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "LandingPage",
+          "DisplayName": "Landing Page",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "LandingPage",
+              "Name": "LandingPage",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Position": "1",
+                "Pattern": null,
+                "AllowCustomPath": "False",
+                "ShowHomepageOption": "True"
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Templates",
+      "Templates": {
+        "Content__LandingPage": {
+          "Content": "[file:text('Snippets/landingpage.liquid')]",
+          "Description": null
+        }
+      }
+    },
+    {
+      "name": "content",
+      "data": [
+        {
+          "ContentItemId": "[js: variables('blogContentItemId')]",
+          "ContentItemVersionId": "45ck5fxpzwqe9z63rb1snjbj52",
+          "ContentType": "LandingPage",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2018-09-11T21:39:12.5481326Z",
+          "PublishedUtc": "2018-09-11T21:39:12.5575726Z",
+          "CreatedUtc": "2018-09-11T21:38:25.6124664Z",
+          "Owner": "dan@moov2.com",
+          "Author": "dan@moov2.com",
+          "LandingPage": {},
+          "AutoroutePart": {
+            "Path": null,
+            "SetHomepage": true
+          },
+          "TitlePart": {
+            "Title": "Home Page"
+          }
+        }
+      ]
+    }
+  ]
+}
