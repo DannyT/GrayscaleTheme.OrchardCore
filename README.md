@@ -1,1 +1,1 @@
-# GraysacleTheme.OrchardCore
+# GrayscaleTheme.OrchardCore
