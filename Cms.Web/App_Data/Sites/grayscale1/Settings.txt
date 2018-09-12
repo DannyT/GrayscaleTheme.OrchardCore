@@ -1,8 +1,0 @@
-&248164163 grayscale1:
-  RequestUrlHost: &433452412 ~
-  RequestUrlPrefix: grayscale1
-  DatabaseProvider: Sqlite
-  TablePrefix: ~
-  ConnectionString: ~
-  State: Running
-...
